@@ -108,7 +108,7 @@ const Header = () => {
                 {/* Logo */}
                 <motion.a layout href="#" className="flex items-center">
                   <span className="text-xl text-white font-bold tracking-tight">
-                    Farhan.
+                    <img src="./src/assets/logopersonalweb.svg" alt="Logo" className="h-10 w-10" />
                   </span>
                 </motion.a>
 

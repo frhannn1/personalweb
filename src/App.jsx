@@ -11,7 +11,6 @@ function App() {
     <div className="bg-surface text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container min-h-screen">
     
       <Header />
-      
       <main>
       <Profile/> 
       <Experience />

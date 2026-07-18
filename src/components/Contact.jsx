@@ -1,8 +1,15 @@
+import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { SiGithub, SiGmail, SiGooglemaps } from 'react-icons/si'
+import { SiGithub, SiGmail, SiGooglemaps } from 'react-icons/si';
 import { SlSocialLinkedin } from 'react-icons/sl';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
+  // Ref untuk form EmailJS
+  const form = useRef();
+  // State untuk efek loading saat tombol ditekan
+  const [isSending, setIsSending] = useState(false);
+
   // Variants untuk animasi Framer Motion
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -22,12 +29,39 @@ const Contact = () => {
     visible: { opacity: 1, x: 0, transition: { duration: 0.6, type: "spring", bounce: 0.3 } }
   };
 
+  // Fungsi untuk mengirim email
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setIsSending(true);
+
+    emailjs
+      .sendForm(
+        'service_4hs1k6j',   // GANTI DENGAN SERVICE ID KAMU
+        'template_yrypo3p',  // GANTI DENGAN TEMPLATE ID KAMU
+        form.current,
+        'q3lY1C5E3gBoetzVC'    // GANTI DENGAN PUBLIC KEY KAMU
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          alert('Pesan berhasil dikirim! Saya akan segera merespons.');
+          setIsSending(false);
+          e.target.reset(); // Kosongkan form setelah sukses
+        },
+        (error) => {
+          console.log(error.text);
+          alert('Gagal mengirim pesan. Silakan coba lagi atau hubungi via email langsung.');
+          setIsSending(false);
+        }
+      );
+  };
+
   return (
     <section
       id="contact"
-      className="relative py-24 overflow-hidden bg-[#0a0a0a]" // Ganti warna background sesuai tema gelap kamu
+      className="relative py-24 overflow-hidden bg-[#0a0a0a]"
     >
-      {/* --- Ambient Glow Backgrounds (Meningkatkan efek kaca) --- */}
+      {/* --- Ambient Glow Backgrounds --- */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[120px] pointer-events-none" />
 
@@ -60,7 +94,7 @@ const Contact = () => {
                 <div className="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center border border-indigo-500/20">
                   <span className="material-symbols-outlined text-indigo-400"><SiGmail/></span>
                 </div>
-                <span className="text-gray-300 font-medium">farhanainurrahman2147@gmail.com</span>
+                <span className="text-gray-300 font-medium">farhanrahman0112@gmail.com</span>
               </motion.div>
 
               {/* Info Kaca - Lokasi */}
@@ -101,11 +135,13 @@ const Contact = () => {
           </motion.div>
 
           {/* Kanan: Form dengan Efek Liquid Glass Premium */}
+          {/* Menambahkan ref dan onSubmit di sini */}
           <motion.form 
+            ref={form}
+            onSubmit={sendEmail}
             variants={slideRightVariants}
             className="relative space-y-6 p-8 md:p-10 rounded-[2.5rem] bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.2)] overflow-hidden group/form"
           >
-            {/* Shimmer Effect saat form di hover */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/[0.05] to-transparent -translate-x-full group-hover/form:animate-[shimmer_1.5s_ease-in-out]" />
 
             <div className="space-y-2 relative z-10">
@@ -115,7 +151,10 @@ const Contact = () => {
               >
                 Name
               </label>
+              {/* Tambahkan atribut name="user_name" */}
               <input
+                name="user_name"
+                required
                 className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-gray-500 focus:outline-none focus:border-indigo-500/50 focus:bg-white/[0.06] focus:ring-4 focus:ring-indigo-500/10 transition-all duration-300"
                 id="name"
                 placeholder="John Doe"
@@ -130,7 +169,10 @@ const Contact = () => {
               >
                 Email
               </label>
+              {/* Tambahkan atribut name="user_email" */}
               <input
+                name="user_email"
+                required
                 className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-gray-500 focus:outline-none focus:border-indigo-500/50 focus:bg-white/[0.06] focus:ring-4 focus:ring-indigo-500/10 transition-all duration-300"
                 id="email"
                 placeholder="john@example.com"
@@ -145,7 +187,10 @@ const Contact = () => {
               >
                 Message
               </label>
+              {/* Tambahkan atribut name="message" */}
               <textarea
+                name="message"
+                required
                 className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-gray-500 focus:outline-none focus:border-indigo-500/50 focus:bg-white/[0.06] focus:ring-4 focus:ring-indigo-500/10 transition-all duration-300 resize-none"
                 id="message"
                 placeholder="Project inquiry..."
@@ -154,13 +199,14 @@ const Contact = () => {
             </div>
 
             <motion.button
+              disabled={isSending}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="relative z-10 w-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white py-4 rounded-xl text-sm uppercase tracking-[0.2em] font-bold shadow-[0_4px_15px_rgba(99,102,241,0.3)] hover:shadow-[0_4px_25px_rgba(99,102,241,0.5)] transition-all duration-300 flex items-center justify-center gap-3"
+              className="relative z-10 w-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white py-4 rounded-xl text-sm uppercase tracking-[0.2em] font-bold shadow-[0_4px_15px_rgba(99,102,241,0.3)] hover:shadow-[0_4px_25px_rgba(99,102,241,0.5)] transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-70 disabled:cursor-not-allowed"
               type="submit"
             >
-              Send Inquiry
-              <span className="material-symbols-outlined text-[18px]">send</span>
+              {isSending ? 'Sending...' : 'Send Inquiry'}
+              {!isSending && <span className="material-symbols-outlined text-[18px]">send</span>}
             </motion.button>
           </motion.form>
 
