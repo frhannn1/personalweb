@@ -8,7 +8,7 @@ const experiences = [
     company: "PT Bank Mandiri Tbk",
     logo: "/logos/logomandiri.png",
     logoSize: "w-20 h-15", 
-    desc: "Working within the Enterprise Data Analytics Group to analyze wholesale transactions on the Mandiri Kopra platform, driving data-informed decisions for corporate banking."
+    desc: ["Working within the Enterprise Data Analytics Group to analyze wholesale transactions on the Kopra by Mandiriplatform, driving data-informed decisions for corporate banking."]
   },
   {
     date: "Oct 2025 — Mar 2026",
@@ -17,8 +17,8 @@ const experiences = [
     logo: "/logos/logopmi.png",
     logoSize: "w-20 h-15",
     desc: [
-      "Integrating services in AWS and Generative AI using Terraform for the Gen AI Intercompany project.",
       "Supporting IT Corporate Finance sub-division on the R2RS Project and POC Ms. Finance Agent.",
+      "Integrating services in AWS and Generative AI using Terraform for the Gen AI Intercompany project.",
       "Managing end-to-end FUT and UAT for SAP Program and internal finance applications."
     ]
   },
@@ -41,11 +41,9 @@ const experiences = [
     logo: "/logos/logoub.png",
     logoSize: "w-20 h-15",
     desc: [
-      "Collaborated on the Manage Detection and Response (MDR) project within the Cyber Security sub-directorate.",
-      "Designed data pipeline architectures for analytics dashboards and AI training datasets.",
-      "Developed an AI-based Security Analysis system integrated with Telegram for automated monitoring."
+      "Managed and facilitated hands-on practical laboratory sessions for 50 students in total, including tailored mentoring for the Information Systems international class."
     ]
-  }
+  } 
 ];
 
 const Experience = () => {

@@ -35,7 +35,7 @@ const Profile = () => {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-purple-500"></span>
                 </span>
-                AI & Machine Learning Engineer
+                Data Scientist & AI Engineer
               </LiquidGlass>
             </motion.div>
             

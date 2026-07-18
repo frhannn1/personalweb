@@ -71,7 +71,7 @@ const Contact = () => {
                 <div className="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center border border-indigo-500/20">
                   <span className="material-symbols-outlined text-indigo-400"><SiGooglemaps/></span>
                 </div>
-                <span className="text-gray-300 font-medium">Malang, Indonesia</span>
+                <span className="text-gray-300 font-medium">Jakarta, Indonesia</span>
               </motion.div>
             </div>
 

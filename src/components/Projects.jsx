@@ -2,11 +2,11 @@ import { motion } from 'framer-motion';
 
 const projects = [
   { title: "Customer Segmentation", desc: "Clustering model for online retail data.", tags: ["ML", "Python"], img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600" },
-  { title: "Manage Detection & Responses", desc: "MDR architecture for real-time security.", tags: ["CyberSec", "GCP"], img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600" },
-  { title: "Prototype Dentra Apps", desc: "AI-based dental damage detection.", tags: ["AI", "Flask"], img: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=600" },
-  { title: "Tomato Leaf Disease", desc: "CNN model for leaf disease detection.", tags: ["Vision", "TF"], img: "https://images.unsplash.com/photo-1592861956120-e524fc739696?auto=format&fit=crop&q=80&w=600" },
-  { title: "Security Analysis", desc: "Pentest on UB website. SQLi & XSS.", tags: ["Security", "Pentest"], img: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=600" },
-  { title: "Credit Risk Classification", desc: "Risk model with 88% accuracy.", tags: ["FinTech", "Scikit"], img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600" },
+  { title: "Manage Detection & Responses", desc: "MDR architecture for real-time security.", tags: ["CyberSec", "AI"], img: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=600" },
+  { title: "Prototype Dentra Apps", desc: "AI-based dental damage detection.", tags: ["AI", "Software Engineering"], img: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=600" },
+  { title: "Tomato Leaf Disease", desc: "CNN model for leaf disease detection.", tags: ["Vision", "Deep Learning"], img: "https://images.unsplash.com/photo-1592841200221-a6898f307baa?auto=format&fit=crop&q=80&w=600" },
+  { title: "Leading PoC Finance Agent", desc: "Leading PoC for finance agent integration in corporate environment", tags: ["PM", "AI"], img: "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=600" },
+  { title: "Credit Risk Classification", desc: "Risk model with 88% accuracy.", tags: ["FinTech", "ML"], img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600" },
   ];
 
 const ProjectCard = ({ title, desc, tags, img, index }) => (

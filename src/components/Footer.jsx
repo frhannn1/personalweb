@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
-import {  SiGithub } from 'react-icons/si';
+import {  SiGithub} from 'react-icons/si';
+import { SlSocialLinkedin } from 'react-icons/sl';
 
 const Footer = () => {
   return (
     <footer className="relative mt-24 overflow-hidden">
-      {/* --- LIQUID BACKGROUND ANIMATION --- */}
       {/* Blob Kiri - Indigo */}
       <motion.div
         animate={{
@@ -69,7 +69,7 @@ const Footer = () => {
                 whileTap={{ scale: 0.95 }}
                 className="flex items-center gap-2 px-6 py-3 bg-white/5 border border-white/10 rounded-full text-white/80 hover:text-white backdrop-blur-md transition-colors"
               >
-                <SiGithub className="text-lg" />
+                <SlSocialLinkedin className="text-lg" />
                 <span className="text-xs font-bold uppercase tracking-widest">LinkedIn</span>
               </motion.a>
 
