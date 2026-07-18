@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 // Import package sesuai dokumentasi
 import { LiquidGlass } from '@liquidglass/react';
+import logoImg from '../assets/logopersonalweb.svg';
 
 const navLinks = [
   { name: 'Profile', href: '#Profile' },
@@ -108,7 +109,7 @@ const Header = () => {
                 {/* Logo */}
                 <motion.a layout href="#" className="flex items-center">
                   <span className="text-xl text-white font-bold tracking-tight">
-                    <img src="./src/assets/logopersonalweb.svg" alt="Logo" className="h-10 w-10" />
+                    <img src={logoImg} alt="Logo" className="h-10 w-10" />
                   </span>
                 </motion.a>
 
