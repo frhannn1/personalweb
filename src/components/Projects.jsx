@@ -66,8 +66,7 @@ const Projects = () => {
   viewport={{ once: true }}
 >
   <a
-    href="LINK_GDRIVE_ANDA"
-    target="_blank"
+    href="#contact"
     rel="noopener noreferrer"
     className="group relative px-8 py-4 rounded-full transition-all duration-300 hover:scale-[1.03] active:scale-[0.97]"
   >

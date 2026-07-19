@@ -6,6 +6,7 @@ import Projects from "./components/Projects";
 import Certificattions from "./components/Certificattions";
 import Footer from "./components/Footer";
 import Contact from "./components/Contact"
+
 function App() {
   return (
     <div className="bg-surface text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container min-h-screen">
