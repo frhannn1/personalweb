@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { SiGithub, SiGmail, SiGooglemaps } from 'react-icons/si';
 import { SlSocialLinkedin } from 'react-icons/sl';
 import emailjs from '@emailjs/browser';
+import { IoSend } from "react-icons/io5";
 
 const Contact = () => {
   // Ref untuk form EmailJS
@@ -206,7 +207,7 @@ const Contact = () => {
               type="submit"
             >
               {isSending ? 'Sending...' : 'Send Inquiry'}
-              {!isSending && <span className="material-symbols-outlined text-[18px]">send</span>}
+              {!isSending && <span className="material-symbols-outlined text-[18px]"><IoSend/></span>}
             </motion.button>
           </motion.form>
 
